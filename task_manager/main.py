@@ -30,8 +30,14 @@ class TaskManagerApp(CTk):
         
         self.error_label.configure(text="")
 
-        task_checkbox = CTkCheckBox(self.tasks_frame, text=task_text, font=("Arial", 16),command=lambda: self.complete_task(task_checkbox))
-        task_checkbox.pack(pady=5, padx=20, anchor="w")
+        task_frame = CTkFrame(self.tasks_frame)
+        task_frame.pack(pady=5, padx=10, fill="x")
+
+        task_checkbox = CTkCheckBox(task_frame, text=task_text, font=("Arial", 16),command=lambda: self.complete_task(task_checkbox))
+        task_checkbox.pack(pady=5, padx=20, side="left")
+
+        delete_button = CTkButton(task_frame, text="Delete", width=80,fg_color="red", hover_color="darkred", command=task_frame.destroy)
+        delete_button.pack(side="right", padx=10, pady=5)
 
         self.task_entry.delete(0, "end")
 
