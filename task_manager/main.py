@@ -7,6 +7,7 @@ class TaskManagerApp(CTk):
 
 
         self.geometry("600x550")
+        self.resizable(False, False)
         self.title("Personal Task Manager")
 
         
